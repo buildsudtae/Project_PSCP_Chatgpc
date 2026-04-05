@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Grid with Board Game Titles</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="navv">
+            <div class="navvv">
+                <div class="logo" onclick="reloadPage()">A Board (Chatgpc)</div>
+                <ul class="menu">
+                    <li><a href="javascript:void(0);" onclick="scrollToBottom()">About</a></li>
+                    <li><a href="javascript:void(0);" onclick="scrollToBottom()">Contact</a></li>
+                    <script>
+                        function reloadPage() {
+                            location.reload();  // This will reload the current page
+                        }
+                        function scrollToBottom() {
+                            const footer = document.getElementById("footer");
+                            footer.scrollIntoView({ behavior: "smooth" });
+                        }
+                    </script>
+                </ul>
+                <form id="searchForm" onsubmit="searchBoardGame(event)">
+                    <input type="text" id="searchInput" placeholder="Search for board games">
+                    <button type="submit">Search</button>
+                </form>
+                <div id="results"></div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="image-box" data-game-id="1">
+            <img src="https://inwfile.com/s-dt/zarcd7.jpg" alt="Coup">
+            <p>7 ATE 9</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=qnrFlxWSOSk" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(1)">ยืมบอร์ดเกม</button>
+            </a> <!-- 7 ate 9 -->
+            <input class="test" type="number" id="timeInput-1" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-1"></div>
+        </div>
+        <div class="image-box" data-game-id="2">
+            <img src="https://m.media-amazon.com/images/I/71UpznWt6VL.jpg" alt="aquarius">
+            <p>AQUARIUS</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=YksHKk1zWL4" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(2)">ยืมบอร์ดเกม</button>
+            </a> <!-- quarius -->
+            <input class="test" type="number" id="timeInput-2" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-2"></div>
+        </div>
+        <div class="image-box" data-game-id="3">
+            <img src="https://cf.geekdo-images.com/LPa6rsGcv8S0-OeNjCOAEQ__itemrep/img/KtGX_JFWNUXci7H5zs7GjS0QrQk=/fit-in/246x300/filters:strip_icc()/pic1398895.jpg" alt="AVALON">
+            <p>AVALON</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=UxF3y8vEbPU" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(3)">ยืมบอร์ดเกม</button>
+            </a> <!-- AVALON -->
+            <input class="test" type="number" id="timeInput-3" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-3"></div>
+        </div>
+        <div class="image-box" data-game-id="4">
+            <img src="https://cf.geekdo-images.com/opengraph/img/5UBOdYQkBGcTlZFSWH3cQ2G3fvw=/fit-in/1200x630/pic3718275.jpg" alt="Azul">
+            <p>AZUL</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=Lqz9iYiW8G0" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(4)">ยืมบอร์ดเกม</button>
+            </a> <!-- Azul -->
+            <input class="test" type="number" id="timeInput-4" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-4"></div>
+        </div>
+        <div class="image-box" data-game-id="5">
+            <img src="https://i.ebayimg.com/images/g/PjQAAOSwWxNkmVwL/s-l1600.webp" alt="BANG">
+            <p>BANG</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=ZboHetONmxw" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(5)">ยืมบอร์ดเกม</button>
+            </a> <!-- BANG -->
+            <input class="test" type="number" id="timeInput-5" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-5"></div>
+        </div>
+        <div class="image-box" data-game-id="6">
+            <img src="https://inwfile.com/s-dt/s61yx4.jpg" alt="BANG GOLD RUSH">
+            <p>BANG GOLD RUSH</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=ZboHetONmxw" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(6)">ยืมบอร์ดเกม</button>
+            </a> <!-- BANG GOLD RUSH -->
+            <input class="test" type="number" id="timeInput-6" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-6"></div>
+        </div>
+        <div class="image-box" data-game-id="7">
+            <img src="https://down-th.img.susercontent.com/file/6011915004dd94a9a40a4478d28d0506" alt="CAPTAIN SONAR">
+            <p>CAPTAIN SONAR</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=U2Diix5qYJo" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(7)">ยืมบอร์ดเกม</button>
+            </a> <!-- CAPTAIN SONAR -->
+            <input class="test" type="number" id="timeInput-7" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-7"></div>
+        </div>
+        <div class="image-box" data-game-id="8">
+            <img src="https://cf.geekdo-images.com/0_KEDk4lCvryf1Ju3YQJxA__itemrep/img/PIGqkIIFQ2YAAe7XzKWArEPVjoc=/fit-in/246x300/filters:strip_icc()/pic3339551.jpg" alt="CENTURY spice road">
+            <p>CENTURY SPICE ROAD</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=4_Bli_4cE5I" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(8)">ยืมบอร์ดเกม</button>
+            </a> <!-- CENTURY spice road -->
+            <input class="test" type="number" id="timeInput-8" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-8"></div>
+        </div>
+        <div class="image-box" data-game-id="9">
+            <img src="https://inwfile.com/s-dt/w003n6.jpg" alt="CITADELS">
+            <p>CITADELS</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=UGvNbAHFIEY" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(9)">ยืมบอร์ดเกม</button>
+            </a> <!-- CITADELS -->
+            <input class="test" type="number" id="timeInput-9" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-9"></div>
+        </div>
+        <div class="image-box" data-game-id="10">
+            <img src="https://cf.geekdo-images.com/MWhSY_GOe2-bmlQ2rntSVg__itemrep/img/QRw3T5XGsrRs-QKCSpzwE7nFqOg=/fit-in/246x300/filters:strip_icc()/pic2016054.jpg" alt="COUP">
+            <p>COUP</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=8RFolKqOagc" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(10)">ยืมบอร์ดเกม</button>
+            </a> <!-- COUP -->
+            <input class="test" type="number" id="timeInput-10" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-10"></div>
+        </div>
+        <div class="image-box" data-game-id="11">
+            <img src="https://mercular.s3.ap-southeast-1.amazonaws.com/images/products/2022/03/review-cs-file-board-game-th-box-art.jpg" alt="CS FILES">
+            <p>CS FILES</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=HFEASIID2oU" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(11)">ยืมบอร์ดเกม</button>
+            </a> <!-- CS FILES -->
+            <input class="test" type="number" id="timeInput-11" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-11"></div>
+        </div>
+        <div class="image-box" data-game-id="12">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsLN9cvLCe0bcmpbw87Lt-KY5B_UdPWt6GAw&s" alt="DEAD OF WINTER">
+            <p>DEAD OF WINTER</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=v3YgX00xyv4" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(12)">ยืมบอร์ดเกม</button>
+            </a> <!-- DEAD OF WINTER -->
+            <input class="test" type="number" id="timeInput-12" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-12"></div>
+        </div>
+        <div class="image-box" data-game-id="13">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKTYGCru-y0opAZGCuQ_df33ho9OXXkR20gw&s" alt="DOMINING">
+            <p>DOMINION</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=z7BxZRAta4s" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(13)">ยืมบอร์ดเกม</button>
+            </a> <!-- DOMINING -->
+            <input class="test" type="number" id="timeInput-13" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-13"></div>
+        </div>
+        <div class="image-box" data-game-id="14">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV_guQse4z5WB6RxkErCINaYdnQ69hsXr1PQ&s" alt="DRAGON CASTLE">
+            <p>DRAGON CASTLE</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=Og3nr8CUluc" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(14)">ยืมบอร์ดเกม</button>
+            </a> <!-- DRAGON CASTLE -->
+            <input class="test" type="number" id="timeInput-14" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-14"></div>
+        </div>
+        <div class="image-box" data-game-id="15">
+            <img src="https://cf.geekdo-images.com/N8bL53-pRU7zaXDTrEaYrw__opengraph/img/2GQDDt2HfOV58ip2jT-eJLQ6o-k=/0x0:680x357/fit-in/1200x630/filters:strip_icc()/pic2691976.png" alt="EXPLODING KITTENS">
+            <p>EXPLODING KITTENS</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=0h1D1nq4eR0" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(15)">ยืมบอร์ดเกม</button>
+            </a> <!-- EXPLODING KITTENS -->
+            <input class="test" type="number" id="timeInput-15" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-15"></div>
+        </div>
+        <div class="image-box" data-game-id="16">
+            <img src="https://inwfile.com/s-dt/ai4vs8.png" alt="GIZMOS">
+            <p>GIZMOS</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=DbKEDYM1y80" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(16)">ยืมบอร์ดเกม</button>
+            </a> <!-- GIZMOS -->
+            <input class="test" type="number" id="timeInput-16" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-16"></div>
+        </div>
+        <div class="image-box" data-game-id="17">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpB2D076W8nEi1860v0F7R5EaVdP-y3OTGnQ&s" alt="KAKER LAKEN POKER">
+            <p>KAKER LAKEN POKER</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=-NDbjtgnrwQ" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(17)">ยืมบอร์ดเกม</button>
+            </a> <!-- KAKER LAKEN POKER -->
+            <input class="test" type="number" id="timeInput-17" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-17"></div>
+        </div>
+        <div class="image-box" data-game-id="18">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXBiCq7BVwrNMpp7IVpys9-_4Gq1aATIfq1A&s" alt="ONE NIGHT">
+            <p>ONE NIGHT</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=pPwpCVqiSkk" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(18)">ยืมบอร์ดเกม</button>
+            </a> <!-- ONE NIGHT -->
+            <input class="test" type="number" id="timeInput-18" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-18"></div>
+        </div>
+        <div class="image-box" data-game-id="19">
+            <img src="https://i.ebayimg.com/images/g/b14AAOSwiKVkLsOZ/s-l960.webp" alt="PANDMEIC">
+            <p>PANDEMIC</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://youtube.com/watch?v=fzAPXx7u_UM" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(19)">ยืมบอร์ดเกม</button>
+            </a> <!-- PANDMEIC -->
+            <input class="test" type="number" id="timeInput-19" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-19"></div>
+        </div>
+        <div class="image-box" data-game-id="20">
+            <img src="https://cf.geekdo-images.com/yd6LuatytHRhcFCxCf-EEg__itemrep/img/LsqKzcnoaVUlSUmLxFE8dwxFndk=/fit-in/246x300/filters:strip_icc()/pic4459753.jpg" alt="POWER GRID">
+            <p>POWER GRID</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=PRCZpZUeOCU" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(20)">ยืมบอร์ดเกม</button>
+            </a> <!-- POWER GRID -->
+            <input class="test" type="number" id="timeInput-20" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-20"></div>
+        </div>
+        <div class="image-box" data-game-id="21">
+            <img src="https://cf.geekdo-images.com/xUurReSy2Amlx4hGj1fPvQ__itemrep/img/Xr5I57NcNwwYLPAs_dRIBmfsoGU=/fit-in/246x300/filters:strip_icc()/pic4204062.jpg" alt="SALEM">
+            <p>SALEM</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=Gj_-Z4QhzKE" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(21)">ยืมบอร์ดเกม</button>
+            </a> <!-- SALEM -->
+            <input class="test" type="number" id="timeInput-21" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-21"></div>
+        </div>
+        <div class="image-box" data-game-id="22">
+            <img src="https://cf.geekdo-images.com/oqoINI9VwBhEy-LD7YD31J37-OI=/fit-in/1200x630/pic3536616.jpg" alt="TERRAFORMING MARS">
+            <p>TERRAFORMING MARS</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=eD3SkN8Kj8E" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(22)">ยืมบอร์ดเกม</button>
+            </a> <!-- TERRAFORMING MARS -->
+            <input class="test" type="number" id="timeInput-22" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-22"></div>
+        </div>
+        <div class="image-box" data-game-id="23">
+            <img src="https://i.ytimg.com/vi/8Rsb3gPrPPk/maxresdefault.jpg" alt="THE KILLER">
+            <p>SERIAL KILLER</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=8Rsb3gPrPPk" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(23)">ยืมบอร์ดเกม</button>
+            </a> <!-- THE KILLER -->
+            <input class="test" type="number" id="timeInput-23" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-23"></div>
+        </div>
+        <div class="image-box" data-game-id="24">
+            <img src="https://cf.geekdo-images.com/opengraph/img/BCNDuq_C5yTBRWff_Cius38DCCI=/fit-in/1200x630/pic3979766.png" alt="THE MIND">
+            <p>THE MIND</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=R6WA_0dbHR4" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(24)">ยืมบอร์ดเกม</button>
+            </a> <!-- THE MIND -->
+            <input class="test" type="number" id="timeInput-24" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-24"></div>
+        </div>
+        <div class="image-box" data-game-id="25">
+            <img src="https://inwfile.com/s-dt/f61zcv.png" alt="TIME LINE">
+            <p>TIME LINE</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=Up_2mZfkmS8" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(25)">ยืมบอร์ดเกม</button>
+            </a> <!-- TIME LINE -->
+            <input class="test" type="number" id="timeInput-25" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-25"></div>
+        </div>
+        <div class="image-box" data-game-id="26">
+            <img src="https://inwfile.com/s-dt/9j9sca.png" alt="Political Mess">
+            <p>Political Mess</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=lHExItLq7v4" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(26)">ยืมบอร์ดเกม</button>
+            </a> <!-- Political Mess -->
+            <input class="test" type="number" id="timeInput-26" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-26"></div>
+        </div>
+        <div class="image-box" data-game-id="27">
+            <img src="https://th.bing.com/th/id/R.4e94edafe0ecb89a79f2abe13829bce1?rik=LLoJ5hYvLTy2Uw&pid=ImgRaw&r=0" alt="๊UNO">
+            <p>UNO</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hHEl0wnEV38" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(27)">ยืมบอร์ดเกม</button>
+            </a> <!-- ๊UNO -->
+            <input class="test" type="number" id="timeInput-27" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-27"></div>
+        </div>
+        <div class="image-box" data-game-id="28">
+            <img src="https://upload.wikimedia.org/wikipedia/en/a/a3/Catan-2015-boxart.jpg" alt="CATAN">
+            <p>CATAN</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=1NeByLaej7c" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(28)">ยืมบอร์ดเกม</button>
+            </a> <!-- CATAN -->
+            <input class="test" type="number" id="timeInput-28" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-28"></div>
+        </div>
+        <div class="image-box" data-game-id="29">
+            <img src="https://cf.geekdo-images.com/dncdxD1g4dxMh9e8oKlzbg__itemrep/img/UhfbyPGGX9z263n-vhzVMG-alHE=/fit-in/246x300/filters:strip_icc()/pic1878492.png" alt="Ultimate Werewolf Deluxe">
+            <p>Ultimate Werewolf Deluxe</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=d0OoxTyyaDw" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(29)">ยืมบอร์ดเกม</button>
+            </a> <!-- Ultimate Werewolf Deluxe -->
+            <input class="test" type="number" id="timeInput-29" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-29"></div>
+        </div>
+        <div class="image-box" data-game-id="30">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwfsaXY2RlFMNytduyAIicv3_K1gaBDwoA-Q&s" alt="สนุก สลัด">
+            <p>สนุก สลัด</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=IqfILxP5vH0" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(30)">ยืมบอร์ดเกม</button>
+            </a> <!-- สนุก สลัด -->
+            <input class="test" type="number" id="timeInput-30" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-30"></div>
+        </div>
+        <div class="image-box" data-game-id="31">
+            <img src="https://th.bing.com/th/id/OIP.quz05laBbVI-FYxwILZAMAHaFG?rs=1&pid=ImgDetMain" alt="หมากรุก">
+            <p>หมากรุก</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=TNlmse5OTeo" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(31)">ยืมบอร์ดเกม</button>
+            </a> <!-- หมากรุก -->
+            <input class="test" type="number" id="timeInput-31" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-31"></div>
+        </div>
+        <div class="image-box" data-game-id="32">
+            <img src="https://down-th.img.susercontent.com/file/de614974781410f477787f365b2013eb" alt="หมากล้อม">
+            <p>หมากล้อม</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=Xzblss_XBN0" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(32)">ยืมบอร์ดเกม</button>
+            </a> <!-- หมากล้อม -->
+            <input class="test" type="number" id="timeInput-32" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-32"></div>
+        </div>
+        <div class="image-box" data-game-id="33">
+            <img src="https://juegosdemesaparaimprimir.com/wp-content/uploads/2024/07/pic4659199.jpg" alt="JUNGLE SPEED">
+            <p>JUNGLE SPEED</p>
+            <div class="checkmark"></div>
+            <a class="play-link" href="https://www.youtube.com/watch?v=YcpoJOsu70k" target="_blank">วิธีการเล่น</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEvTbXBfrWEMg2-kItCrJPY_jTqWh0Ads3oVvTs-1wApDDSA/viewform" target="_blank">
+                <button class="play-button" id="toggle-button" onclick="startTask(33)">ยืมบอร์ดเกม</button>
+            </a> <!-- JUNGLE SPEED -->
+            <input class="test" type="number" id="timeInput-33" placeholder="กรอกเวลานับถอยหลัง (นาที)" required>
+            <div id="countdownDisplay-33"></div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='javascript.js') }}"></script>
+</body>
+<footer class="footer">
+    <footer id="footer">
+        {{ message }}
+    </footer>
+    <p>&copy; 2024 MyWebsite. All rights reserved.</p>
+    <div class="social-links">
+        <a href="#">Facebook</a>
+        <a href="#">Twitter</a>
+        <a href="#">Instagram</a>
+    </div>
+    <button class="back-to-top" onclick="scrollToTop()">ด้านบน</button>
+</footer>
+<script src="javascript.js"></script>
+</html>
