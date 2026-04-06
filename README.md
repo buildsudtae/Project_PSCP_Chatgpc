@@ -33,7 +33,7 @@
 **Front-end**
 - **HTML** — โครงสร้างหน้าเว็บ
 - **CSS** — ตกแต่งและจัดวาง
-- **JavaScript** — ควบคุม logic
+- **JavaScript** — ควบคุมการทำงาน
 
 **Back-end**
 - **Python + Flask** — Web framework จัดการ routing และ render template
